@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\WorkLog;
 
 class WorkLogSeeder extends Seeder
 {
@@ -12,6 +12,7 @@ class WorkLogSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        // Create 30,000 WorkLog records. Adjust the count as needed.
+        WorkLog::factory()->count(100000)->create();
     }
 }

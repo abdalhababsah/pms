@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             EmployeesSeeder::class,    // if using separate seeders for employees
             ProjectsSeeder::class,
             FeedbackSeeder::class,
+            ShiftSeeder::class,
             WorkDaySeeder::class,
             WorkLogSeeder::class,
         ]);
