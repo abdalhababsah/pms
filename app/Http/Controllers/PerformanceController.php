@@ -50,10 +50,14 @@ class PerformanceController extends Controller
         // Load work logs (with related project info) if the work day exists.
         $workLogs = $workDay ? $workDay->workLogs()->with('project')->get() : collect();
 
+        // Retrieve the shift if the work day exists.
+        $shift = $workDay ? $workDay->shift : null;
+
         // Return JSON response.
         return response()->json([
             'workDay'  => $workDay,
             'workLogs' => $workLogs,
+            'shift'    => $shift,
         ]);
     }
 }

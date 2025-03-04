@@ -13,6 +13,6 @@ class WorkLogSeeder extends Seeder
     public function run(): void
     {
         // Create 30,000 WorkLog records. Adjust the count as needed.
-        WorkLog::factory()->count(100000)->create();
+        WorkLog::factory()->count(10000)->create();
     }
 }
