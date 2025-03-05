@@ -6,6 +6,7 @@ use App\Http\Controllers\Employee\EmployeeDashboardController;
 use App\Http\Controllers\PerformanceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\Employee\WorklogController;
 use App\Http\Controllers\TeamLead\TeamLeaderDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,7 +73,9 @@ Route::middleware(['auth', 'role:2', 'check.team.member'])->group(function () {
 // Employee Routes: Only accessible by users with `employee` role
 Route::middleware(['auth', 'role:3'])->prefix('employee')->group(function () {
     Route::get('/dashboard', [EmployeeDashboardController::class, 'index'])->name('employee.dashboard');
-
+    Route::post('worklog/start', [WorklogController::class, 'start'])->name('employee.worklog.start');
+    Route::post('worklog/end', [WorklogController::class, 'end'])->name('employee.worklog.end');
+    Route::get('worklog/timeline', [WorklogController::class, 'timeline'])->name('employee.worklog.timeline');
     Route::get('/my-performance', [PerformanceController::class, 'performanceForAuth'])
     ->name('employee.performance.self');
 });

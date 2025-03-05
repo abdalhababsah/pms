@@ -16,6 +16,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'shift_id', 
     ];
 
     protected $hidden = [
@@ -69,6 +70,10 @@ class User extends Authenticatable
         return $this->hasMany(UnfairFeedback::class, 'user_id');
     }
 
+    public function shift()
+    {
+        return $this->belongsTo(Shift::class);
+    }
     public function getMonthlyAverageFeedbackAttribute()
     {
         $query = $this->feedbacks()

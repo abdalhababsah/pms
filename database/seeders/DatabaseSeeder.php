@@ -11,8 +11,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolesTableSeeder::class,
             UsersTableSeeder::class,
-            TeamLeadersSeeder::class,  // if using separate seeders for team leaders
-            EmployeesSeeder::class,    // if using separate seeders for employees
+            StatusSeeder::class,
+            TeamLeadersSeeder::class,  
+            EmployeesSeeder::class,    
             ProjectsSeeder::class,
             FeedbackSeeder::class,
             ShiftSeeder::class,
